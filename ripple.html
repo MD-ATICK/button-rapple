@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button ripple</title>
+    <link rel="stylesheet" href="ripple.css">
+</head>
+<body>
+    <div class="box">
+      <a class="button" href="">Button
+        <!-- <span class="overly"></span> -->
+      </a></div>
+      <a class="button second" href="">Button
+        <!-- <span class="overly"></span> -->
+      </a></div>
+    </div>
+
+    <script>
+        const buton = document.querySelectorAll(".button")
+        // console.log(overly);
+        
+        for(let w of buton){
+          w.addEventListener("click" , (e) => {
+            e.preventDefault()
+            
+            const overly = document.createElement("span")
+            overly.classList.add("overly")
+
+            let x = e.clientX - e.target.offsetLeft;
+            let y = e.clientY - e.target.offsetTop;
+
+            overly.style.top = x + "px"
+            overly.style.left = y + "px"
+
+            e.target.appendChild(overly)
+            setTimeout(() => {
+                overly.remove()
+            }, 500);
+            console.log(e);
+          })
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
